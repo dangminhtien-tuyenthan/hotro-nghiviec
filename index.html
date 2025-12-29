@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Nhập thông tin hỗ trợ nghỉ việc</title>
+</head>
+<body>
+
+<h3>NHẬP THÔNG TIN NGƯỜI LAO ĐỘNG</h3>
+
+<input placeholder="Mã nhân sự / CCCD" id="ma"><br>
+<input placeholder="Họ và tên" id="hoten"><br>
+<input placeholder="Chức danh" id="chucdanh"><br>
+<input type="date" id="ngaysinh"><br>
+<input type="date" id="ngaytuyendung"><br>
+<input placeholder="Lương BHXH" id="luong"><br>
+<input placeholder="Đơn vị" id="donvi"><br>
+
+<button onclick="gui()">GỬI DỮ LIỆU</button>
+
+<script>
+function gui() {
+  fetch("https://script.google.com/macros/s/AKfycbzFzJZCKeEzRS7rXCQ357_IR_EHAHoHQHS_I78np0Cj/dev", {
+    method: "POST",
+    body: JSON.stringify({
+      ma: ma.value,
+      hoten: hoten.value,
+      chucdanh: chucdanh.value,
+      ngaysinh: ngaysinh.value,
+      ngaytuyendung: ngaytuyendung.value,
+      luong: luong.value,
+      donvi: donvi.value
+    })
+  }).then(() => alert("Đã gửi dữ liệu thành công"));
+}
+</script>
+
+</body>
+</html>
