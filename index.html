@@ -22,19 +22,25 @@
 function gui() {
   fetch("https://script.google.com/macros/s/AKfycbzb_yaWq4XWH5CLnPkPrpfdyHgvwr4hv3slIZWAG_q2OyUHzEcNTnGIgzQKAj-5jB1ffw/exec", {
     method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({
-      ma: ma.value,
-      hoten: hoten.value,
-      chucdanh: chucdanh.value,
-      ngaysinh: ngaysinh.value,
-      ngaytuyendung: ngaytuyendung.value,
-      luong: luong.value,
-      donvi: donvi.value
+      ma: document.getElementById("ma").value,
+      hoten: document.getElementById("hoten").value,
+      chucdanh: document.getElementById("chucdanh").value,
+      ngaysinh: document.getElementById("ngaysinh").value,
+      ngaytuyendung: document.getElementById("ngaytuyendung").value,
+      luong: document.getElementById("luong").value,
+      donvi: document.getElementById("donvi").value
     })
-  }).then(() => alert("Đã gửi dữ liệu thành công"));
+  }).then(() => {
+    alert("Đã gửi dữ liệu thành công");
+  });
 }
 </script>
 
+
 </body>
 </html>
-
